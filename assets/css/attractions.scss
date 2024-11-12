@@ -105,8 +105,6 @@ button{
 
 .section__block2 {
     display: none;
-    margin: 10px;
-    padding: 10px;
     border-radius: 5px;
 }
 .section__block2.active {
@@ -207,6 +205,8 @@ button{
     }
 }
 .footer{
+    max-width: 1490px;
+    margin: 0 auto;
     margin-top: 150px;
     &__flex{
         display: flex;
