@@ -113,10 +113,22 @@ button {
   margin-top: 150px;
 }
 .section__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, auto);
   gap: 20px;
+}
+.section__blocks1 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.section__blocks2 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.section__blocks3 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
 }
 .section__title {
   font-size: 32px;
@@ -145,13 +157,11 @@ button {
   font-size: 20px;
   font-weight: 700;
   color: #464d4c;
-  margin-bottom: 15px;
-  margin-top: 50px;
+  margin-bottom: 25px;
 }
 
 .footer {
   margin-top: 150px;
-  margin-bottom: 200px;
 }
 .footer__flex {
   display: flex;

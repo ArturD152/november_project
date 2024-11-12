@@ -105,10 +105,22 @@ button{
 .section{
     margin-top: 150px;
     &__grid{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(3, auto); 
         gap: 20px;
+    }
+    &__blocks1{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+    }
+    &__blocks2{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+    }
+    &__blocks3{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
     }
     &__title{
         font-size: 32px;
@@ -137,13 +149,11 @@ button{
         font-size: 20px;
         font-weight: 700;
         color: #464d4c;
-        margin-bottom: 15px;
-        margin-top: 50px;
+        margin-bottom: 25px;
     }
 }
 .footer{
     margin-top: 150px;
-    margin-bottom: 200px;
     &__flex{
         display: flex;
         gap: 200px;
