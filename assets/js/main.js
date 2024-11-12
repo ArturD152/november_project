@@ -1,28 +1,34 @@
-const gap = 23;
+document.addEventListener('DOMContentLoaded', function() {
+    const sliderImages = document.querySelectorAll('.section2__slider-images img');
+    const prevBtn = document.querySelector('.section__slider-prevBtn');
+    const nextBtn = document.querySelector('.section__slider-nextBtn');
+    let currentIndex = 0;
 
-const carousel = document.querySelector(".carusel"),
-    content = document.getElementById("content"),
-    next = document.querySelector(".next"),
-    prev = document.querySelector(".prev");
+    function showImage(index) {
+        sliderImages.forEach((img, i) => {
+            if (i === index) {
+                img.classList.add('active');
+            } else {
+                img.classList.remove('active');
+            }
+        });
+    }
 
-next.addEventListener("click", (e) => {
-    carousel.scrollBy(width + gap, 0);
-    if (carousel.scrollWidth !== 0) {
-        prev.style.display = "flex";
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % sliderImages.length;
+        showImage(currentIndex);
     }
-    if (content.scrollWidth - width - gap <= carousel.scrollLeft + width) {
-        next.style.display = "none";
+
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + sliderImages.length) % sliderImages.length;
+        showImage(currentIndex);
     }
+
+    nextBtn.addEventListener('click', nextImage);
+    prevBtn.addEventListener('click', prevImage);
+
+    // Show the first image initially
+    showImage(currentIndex);
 });
-prev.addEventListener("click", (e) => {
-    carousel.scrollBy(-(width + gap), 0);
-    if (carousel.scrollLeft - width - gap <= 0) {
-        prev.style.display = "none";
-    }
-    if (!content.scrollWidth - width - gap <= carousel.scrollLeft + width) {
-        next.style.display = "flex";
-    }
-});
 
-let width = carousel.offsetWidth;
-window.addEventListener("resize", (e) => (width = carousel.offsetWidth));
+
