@@ -203,6 +203,9 @@ button{
         color: #464d4c;
         margin-bottom: 25px;
     }
+    &__block2{
+        width: calc(50% - 20px); /* Две колонки с отступами */
+    }
 }
 .footer{
     max-width: 1490px;
