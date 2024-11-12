@@ -1,0 +1,173 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat;
+    background-color: #FFE7BC;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+input{
+    outline:none;
+}
+button{
+    cursor: pointer;
+}
+@font-face {
+    font-family: Montserrat;
+    src: url(../fonts/Montserrat-Bold.ttf);
+    font-weight: 700;
+}
+@font-face {
+    font-family: Montserrat;
+    src: url(../fonts/Montserrat-SemiBold.ttf);
+    font-weight: 600;
+}
+@font-face {
+    font-family: Montserrat;
+    src: url(../fonts/Montserrat-Medium.ttf);
+    font-weight: 500;
+}
+.container{
+    max-width: 1490px;
+    margin: 0 auto;
+}
+.header{
+    margin-top: 14px;
+    &__links-info{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__logo{
+        cursor: pointer;
+    }
+    &__item{
+        display: flex;
+        gap: 31px;
+        color: #606060;
+    }
+    &__info{
+        display: flex;
+        gap: 40px;
+        font-size: 16px;
+    }
+    &__city{
+        display: flex;
+    }
+    &__btns-search{
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin-top: 24px;
+    }
+    &__mail{
+        color: #606060;
+        font-weight: 600;
+    }
+    &__moscow{
+        color: #63BEAF;
+    }
+    &__link{
+        font-weight: 500;
+        font-size: 16px;
+        color: #606060;
+    }
+    &__btn{
+        background-color: #63BEAF;
+        border: 0;
+        color: #ffff;
+        border-radius: 7px;
+        padding: 16px 40.5px 16px 40.5px;
+        font-size: 16px;
+    }
+    &__input{
+        font-size: 16px;
+        height: 46px;
+        width: 722px;
+        border-radius: 7px;
+        border: 3px solid #63BEAF;
+    }
+    &__search-img{
+        background-color: #63BEAF;
+        border: 0;
+        padding-bottom: 14px;
+    }
+    &__form{
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+}
+.section{
+    margin-top: 150px;
+    &__grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, auto); 
+        gap: 20px;
+    }
+    &__title{
+        font-size: 32px;
+        font-weight: 600;
+        color: #606060;
+        margin-bottom: 118px;
+    }
+    &__block1-title{
+        font-size: 20px;
+        font-weight: 700;
+        color: #464d4c;
+        margin-bottom: 25px;
+    }
+    &__block1-pict{
+        max-width: 615px;
+        max-height: 416px;
+    }
+    &__block1-text{
+        max-width: 800px;
+    }
+    &__block2-img{
+        display: flex;
+        gap: 40px;
+    }
+    &__block2-title{
+        font-size: 20px;
+        font-weight: 700;
+        color: #464d4c;
+        margin-bottom: 15px;
+        margin-top: 50px;
+    }
+}
+.footer{
+    margin-top: 150px;
+    margin-bottom: 200px;
+    &__flex{
+        display: flex;
+        gap: 200px;
+    }
+    &__flex-title{
+        color: #E38C56;
+        font-size: 15px;
+    }
+    &__flex-number{
+        display: flex;
+        align-items: top;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+    &__flex-num_link{
+        color: #312E2B;
+    }
+    &__text{
+        margin-left: 215px;
+        margin-top: 14px;
+        margin-bottom: 10px;
+        color: #ADADAD;
+    }
+    &__flex-title{
+        margin-bottom: 24px;
+    }
+}
