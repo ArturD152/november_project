@@ -47,7 +47,7 @@
                 </h1>
                 <div class="filters">
                     <div class="dropdown">
-                        <button class="dropbtn filter-btn">Filter</button>
+                        <button class="dropbtn filter-btn">Фильтр</button>
                         <div class="dropdown-content">
                             <button class="filter-btn" data-filter="all">Все</button>
                             <button class="filter-btn" data-filter="parks">Парки</button>
@@ -138,40 +138,6 @@
                 </div>
             </div>
         </section>
-    
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const filterBtns = document.querySelectorAll('.dropdown-content .filter-btn');
-                const blocks = document.querySelectorAll('.section__block2');
-    
-                function filterBlocks(category) {
-                    blocks.forEach(block => {
-                        if (category === 'all' || block.getAttribute('data-category') === category) {
-                            block.classList.add('active');
-                        } else {
-                            block.classList.remove('active');
-                        }
-                    });
-    
-                    // Update active class for buttons
-                    filterBtns.forEach(btn => {
-                        if (btn.getAttribute('data-filter') === category) {
-                            btn.classList.add('active');
-                        } else {
-                            btn.classList.remove('active');
-                        }
-                    });
-                }
-    
-                filterBtns.forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        filterBlocks(this.getAttribute('data-filter'));
-                    });
-                });
-    
-                filterBlocks('all');
-            });
-        </script>
             
             </div>
         </section>
@@ -271,5 +237,7 @@
             </div>
         </footer>
     </div>   
+    <script src="./assets/js/filter.js"></script>
+    <script src="./assets/js/pagination.js"></script>
 </body>
 </html>

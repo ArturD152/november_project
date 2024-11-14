@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -222,7 +221,7 @@ button {
   margin-bottom: 25px;
 }
 .section__block2 {
-  width: calc(50% - 20px); /* Две колонки с отступами */
+  width: calc(50% - 20px);
 }
 
 .footer {
