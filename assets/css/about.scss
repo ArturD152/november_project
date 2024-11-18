@@ -35,12 +35,25 @@ input{
 }
 .header{
     margin-top: 14px;
+    @media (max-width:414px) {
+        margin-left: 20px;
+    }
     &__links-info{
         display: flex;
         justify-content: space-between;
+        @media (max-width: 414px) {
+            display: none;
+        }
     }
     &__logo{
         cursor: pointer;
+    }
+    &__burger{
+        display: none;
+        @media (max-width:414px) {
+            display: block;
+            border: 0;
+        }
     }
     &__item{
         display: flex;
@@ -81,6 +94,19 @@ input{
         padding: 16px 40.5px 16px 40.5px;
         font-size: 16px;
         cursor: pointer;
+        @media (max-width: 414px){
+            font-size: 12px;
+            padding: 16px 10px 16px 10px;
+            min-width: 200px;
+            }
+    }
+    &__adaptive{
+        @media (max-width: 414px) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 320px;
+        }
     }
     &__input{
         font-size: 16px;
@@ -106,21 +132,47 @@ input{
         justify-content: space-between;
         align-items: top;
         margin-bottom: 50px;
+        @media (max-width:414px) {
+            margin-left: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: top;
+            gap: 100px;
+        }
+    }
+    &__block3{
+        @media (max-width:414px) {
+            display: none;
+        }
     }
     &__title{
         margin-top: 28px;
+        @media (max-width:414px) {
+            display: none;
+        }
     }
     &__text-s{
         margin-top: 30px;
         font-size: 24px;
         font-weight: 600;
+        margin-bottom: 20px;
+        @media (max-width:414px) {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
     }
     &__block{
         width: 360px;
         }
+    
+        
     &__text{
         margin-top: 50px;
         margin-bottom: 18px;
+        @media (max-width:414px) {
+            margin-left: 20px;
+            font-size: 14px;
+        }
         }
     &__num{
         font-size: 42px;
@@ -129,6 +181,9 @@ input{
         &__title{
         font-size: 18px;
         font-weight: 700;
+        @media (max-width:414px) {
+            margin-left: 5px;
+        }
         }
         &__main-text{
         font-size: 16px;
@@ -138,6 +193,7 @@ input{
 .footer{
     margin-top: 100px;
     margin-bottom: 40px;
+    }
     &__flex{
         display: flex;
         gap: 200px;
@@ -164,4 +220,3 @@ input{
     &__flex-title{
         margin-bottom: 24px;
     }
-}

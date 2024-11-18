@@ -37,10 +37,16 @@ button{
     margin: 0 auto;
 }
 .header{
+    @media (max-width:414px) {
+        margin-left: 40px;
+    }
     margin-top: 14px;
     &__links-info{
         display: flex;
         justify-content: space-between;
+        @media (max-width: 414px) {
+            display: none;
+        }
     }
     &__logo{
         cursor: pointer;
@@ -90,6 +96,16 @@ button{
         width: 722px;
         border-radius: 7px;
         border: 3px solid #63BEAF;
+        @media (max-width: 414px) {
+            max-width: 300px;
+        }
+    }
+    &__burger{
+        display: none;
+        @media (max-width: 414px) {
+            display: block;
+            border: 0;
+        }
     }
     &__search-img{
         background-color: #63BEAF;
@@ -101,15 +117,21 @@ button{
         align-items: center;
         gap: 30px;
     }
+    &__adaptive{
+        @media (max-width: 414px) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+    }
+}
+.filters{
+    @media (max-width:414px) {
+        margin-left: 13px;
+    }
 }
 
-.section__block2 {
-    display: none;
-    border-radius: 5px;
-}
-.section__block2.active {
-    display: block;
-}
 .filter-btn {
     margin: 5px;
     padding: 10px;
@@ -154,57 +176,51 @@ button{
 .dropdown:hover .dropbtn {
     background-color: #63BEAF;
 }
-.section{
-    margin-top: 150px;
-    &__grid{
-        gap: 20px;
-    }
-    &__blocks1{
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 30px;
-    }
-    &__blocks2{
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 30px;
-    }
-    &__blocks3{
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 30px;
+.attractions{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 20px;
+    @media (max-width:414px) {
+        display: block;
     }
     &__title{
-        font-size: 32px;
-        font-weight: 600;
-        color: #606060;
-        margin-bottom: 118px;
+        margin-bottom: 20px;
     }
-    &__block1-title{
-        font-size: 20px;
-        font-weight: 700;
-        color: #464d4c;
-        margin-bottom: 25px;
+}
+
+.pagination__button{
+    button{
+        color: #FFF;
+        font-size: 24px;
+        padding: 17px 25px;
+        background-color: #45B9E8;
+        border: none;
+        border-radius: 13px;
+        cursor: pointer;
+
     }
-    &__block1-pict{
-        max-width: 615px;
-        max-height: 416px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 141px;
+    padding-bottom: 145px;
+}
+[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    background-image: url(../img/cross.svg);
+    background-size: 20px 20px;
+}
+.section{
+
+    @media (max-width:414px) {
+        margin-left: 20px;
     }
-    &__block1-text{
-        max-width: 800px;
-    }
-    &__block2-img{
-        display: flex;
-        gap: 40px;
-    }
-    &__block2-title{
-        font-size: 20px;
-        font-weight: 700;
-        color: #464d4c;
-        margin-bottom: 25px;
-    }
-    &__block2{
-        width: calc(50% - 20px); 
+    &__title{
+        margin-top: 20px;
+        margin-bottom: 30px;
     }
 }
 .footer{
@@ -236,5 +252,21 @@ button{
     }
     &__flex-title{
         margin-bottom: 24px;
+    }
+}
+.module{
+    display: none;
+    background-color: #fff;
+    @media (max-width:414px) {
+        display: none;
+    }
+    &.open{
+        display: block;
+        position: absolute;
+        bottom: 80%;
+        color: green;
+    }
+    &__text{
+        color: green;
     }
 }
