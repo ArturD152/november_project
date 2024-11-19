@@ -1,45 +1,29 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Бургер-меню</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Достопримечательности</title>
+  <style>
+    #data-container, #details-container {
+      margin: 20px;
+    }
+    .block {
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+    #details-container {
+      display: none;
+    }
+    #details-container.active {
+      display: block;
+    }
+  </style>
 </head>
 <body>
-    <div class="header__links-info">
-        <nav class="header__nav" id="menu">
-            <ul class="header__item" id="navLinks">
-                <a href="./index.html" class="header__link"><li>Главная</li></a>
-                <a href="./about.html" class="header__link"><li class="header__link">О компании</li></a>
-                <a href="./contacts.html" class="header__link"><li class="header__link">Контакты</li></a>
-                <a href="./attractions.html" class="header__link"><li class="header__link">Достопримечательности</li></a>
-            </ul>
-        </nav>
-        <div class="header__info">
-            <p class="header__mail">info@localguide.ru</p>
-            <div class="header__city">
-                <img src="./assets/img/Map_Pin.png" alt="">
-                <p class="header__moscow">Москва</p>
-            </div>
-        </div>
-    </div>
-    <div class="header__btns-search">
-        <div class="header__logo">
-            <img src="./assets/img/logo.png" alt="logo">
-        </div>
-        <div class="header__adaptive">
-            <a href="./form/index.html">
-                <button class="header__btn">
-                    Cвязаться с нами
-                </button>
-            </a>
-            <button class="header__burger" id="burger">
-                <img src="./assets/img/burger.png" alt="" id="burger-icon">
-            </button>
-        </div>
-    </div>
+  <div id="data-container"></div>
+  <div id="details-container"></div>
 
-    <script src="./assets/js/burger.js"></script>
+  <script src="./assets/js/burger.js"></script>
 </body>
 </html>

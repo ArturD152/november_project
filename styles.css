@@ -1,59 +1,40 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
 }
 
-.header__nav {
-    display: none;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background-color: #fff;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    min-width: 160px;
-    z-index: 1;
-}
-
-.header__item {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.header__item li {
-    padding: 10px;
-    text-align: center;
-}
-
-.header__link {
-    text-decoration: none;
-    color: #333;
-}
-
-.header__link:hover {
-    color: #007bff;
-}
-
-.header__burger {
-    background: none;
-    border: none;
+button {
     cursor: pointer;
-    display: none; /* Скрываем бургер по умолчанию */
 }
 
-.header__burger img {
-    width: 30px;
-    height: 30px;
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Фон модального окна */
 }
 
-/* Медиа-запрос для мобильных устройств */
-@media (max-width: 768px) {
-    .header__burger {
-        display: block; /* Показываем бургер на мобильных устройствах */
-    }
+.modal.show {
+    display: block; /* Показываем модальное окно */
+}
 
-    .header__nav {
-        display: none; /* Скрываем меню на мобильных устройствах */
-    }
+.modal .modal-content {
+    position: relative;
+    margin: 15% auto;
+    padding: 20px; /* Отступы внутри модального окна */
+    background-color: #fff; /* Фон содержимого модального окна */
+    border-radius: 5px; /* Скругление углов */
+    width: 80%;
+    max-width: 500px;
+}
+
+.modal .modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
 }
