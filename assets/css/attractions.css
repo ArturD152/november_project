@@ -224,7 +224,7 @@ button {
   color: #FFF;
   font-size: 24px;
   padding: 17px 25px;
-  background-color: #45B9E8;
+  background-color: #63BEAF;
   border: none;
   border-radius: 13px;
   cursor: pointer;
@@ -293,9 +293,9 @@ button {
 .module.open {
   display: block;
   position: absolute;
+  left: 115%;
   bottom: 80%;
-  color: green;
 }
 .module__text {
-  color: green;
+  color: #63BEAF;
 }

@@ -8,12 +8,9 @@ const strel = document.querySelector(".filte_search__filter__img") ;
 const buttons = Array.from(document.querySelectorAll('.all__btn__btns'));
 const text = document.querySelector('.filte_search__filter__text')
 
-// Восстановление состояния поиска и фильтра из localStorage
 const savedSearchInput = localStorage.getItem('searchInput') || '';
 const savedCategory = localStorage.getItem('category') || 'all';
 document.getElementById('searchInput').value = savedSearchInput.toLowerCase();
-// const textbtn = localStorage.getItem('text')||"Без фильтра";
-// text.textContent = textbtn;
 
 function applyFilters() {
     const searchInput = localStorage.getItem('searchInput');
@@ -23,7 +20,7 @@ function applyFilters() {
         (category === 'all' || item.getAttribute('data-category') === category) && item.textContent.toLowerCase().includes(searchInput)
     );
 
-    currentPage = 1; // Сбрасываем на первую страницу
+    currentPage = 1;
     localStorage.setItem('currentPage', currentPage);
     renderItems();
 }
@@ -49,7 +46,6 @@ function renderPagination() {
 
     const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
     for (let i = 1; i <= totalPages; i++) {
-        // console.log(totalPages)
         const button = document.createElement('button');
         button.textContent = i;
         button.onclick = () => {
@@ -73,34 +69,10 @@ function filterByCategory(category) {
     localStorage.setItem('category', category);
     applyFilters();
 }
-// Инициализация
-
 
 applyFilters();
 let c =0;
 
-// btn.addEventListener("click", (e) =>{
-//     if(c==0){
-//         win.style.display = 'flex';
-//         c=c+1
-//     }else{
-//         win.style.display = 'none';
-//         c=c-1
-//     }
-// })
-// window.addEventListener('click', function (event) {
-//     if (!event.target.matches('#btn')) {
-//         if(win.style.display != 'none'){
-//             win.style.display = 'none';
-//             strel.classList.toggle('rotate');
-//             c=c-1
-//         }
-//     }
-//     // else{
-//     //     win.style.display = 'none';
-//     //     strel.classList.toggle('rotate');
-//     // }
-// });
 
 buttons.forEach(buttons => {
     buttons.addEventListener('click', function () {
@@ -112,10 +84,6 @@ buttons.forEach(buttons => {
         c=c-1
     });
 });
-
-// btn.addEventListener('click', ()=>{
-//     strel.classList.toggle('rotate');
-// })
 
 
 function postId(id){
