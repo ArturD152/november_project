@@ -43,18 +43,6 @@ function displayData(data) {
     });
 }   
 
-// Функция для отображения подробной информации
-function showDetails(item) {
-    const detailsContainer = document.getElementById('details-container');
-    detailsContainer.innerHTML += `
-        <h2>${item.title}</h2>
-        <img src="${item.image}" alt="${item.title}">
-        <p>${item.text}</p>
-    `;
-    detailsContainer.classList.add('active');
-
-    // Инициализация карты
-}
 
 
 

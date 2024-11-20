@@ -1,0 +1,30 @@
+* {
+  font-family: Montserrat;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url(../fonts/Montserrat-Bold.ttf);
+  font-weight: 700;
+}
+@font-face {
+  font-family: Montserrat;
+  src: url(../fonts/Montserrat-SemiBold.ttf);
+  font-weight: 600;
+}
+@font-face {
+  font-family: Montserrat;
+  src: url(../fonts/Montserrat-Medium.ttf);
+  font-weight: 500;
+}
+.information__title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.information__text {
+  font-size: 14px;
+  margin-top: 25px;
+}
