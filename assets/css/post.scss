@@ -1,5 +1,6 @@
 *{
     font-family: Montserrat;
+    background-color: #FFE7BC;
 }
 @font-face {
     font-family: Montserrat;
@@ -17,15 +18,37 @@
     font-weight: 500;
 }
 .information{
+    max-width: 1490px;
+    margin: 0 auto;
     &__title{
         text-align: center;
-        font-size: 20px;
+        font-size: 24px;
         font-weight: 800;
         margin-bottom: 20px;
         margin-top: 20px;
     }
     &__text{
-        font-size: 14px;
+        font-size: 16px;
         margin-top: 25px;
+        margin-bottom: 10px;
     }
+    &__image{
+        display: block;
+        margin: auto;
+    }
+    &__map{
+        width: 615px;
+        height: 410px;
+        position: relative;
+    }
+    &__frame{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+    &__main-text{
+        max-width: 900px;
+        margin-left: 50px;
+    }
+    
 }

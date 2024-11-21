@@ -14,6 +14,7 @@ function render(n){
         <h2>${item.title}</h2>
         <img src="${item.image}" alt="${item.title}">
         <p>${item.text}</p>
+        <iframe src="${item.map}" width="100%" height="100%"></iframe>
     `
 }
 
