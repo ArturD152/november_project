@@ -35,11 +35,13 @@
     &__image{
         display: block;
         margin: auto;
+        border-radius: 3px;
     }
     &__map{
         width: 615px;
         height: 410px;
         position: relative;
+        border-radius: 3px;
     }
     &__frame{
         display: grid;

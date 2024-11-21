@@ -37,11 +37,13 @@
 .information__image {
   display: block;
   margin: auto;
+  border-radius: 3px;
 }
 .information__map {
   width: 615px;
   height: 410px;
   position: relative;
+  border-radius: 3px;
 }
 .information__frame {
   display: grid;

@@ -29,22 +29,6 @@ fetch(url)
         console.error('Произошла ошибка:', error);
     });
 
-// Функция для отображения данных в HTML
-function displayData(data) {
-    const container = document.getElementById('data-container');
-    data.forEach(item => {
-        const block = document.createElement('div');
-        block.className = 'block';
-        block.innerHTML = `
-            <h2>${item.title}</h2>
-            <img src="${item.image}" alt="${item.title}">
-        `;
-        container.appendChild(block);
-    });
-}   
-
-
-
 
 // Функция для отображения данных в HTML
 function displayData(data) {
