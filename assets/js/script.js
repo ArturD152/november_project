@@ -1,11 +1,11 @@
-const items = Array.from(document.querySelectorAll('.content__block'));
+const items = Array.from(document.querySelectorAll('.block'));
 let currentPage = parseInt(localStorage.getItem('currentPage')) || 1;
 const itemsPerPage = 4;
 let filteredItems = [...items];
 const btn = document.querySelector(".filte_search__filter__btn");
 const win = document.querySelector(".all__btn");
 const strel = document.querySelector(".filte_search__filter__img") ;
-const buttons = Array.from(document.querySelectorAll('.all__btn__btns'));
+const buttons = Array.from(document.querySelectorAll('.filter-btn'));
 const text = document.querySelector('.filte_search__filter__text')
 
 const savedSearchInput = localStorage.getItem('searchInput') || '';
@@ -13,6 +13,7 @@ const savedCategory = localStorage.getItem('category') || 'all';
 document.getElementById('searchInput').value = savedSearchInput.toLowerCase();
 
 function applyFilters() {
+    console.log(items)
     const searchInput = localStorage.getItem('searchInput');
     const category = localStorage.getItem('category');
     console.log(searchInput)
