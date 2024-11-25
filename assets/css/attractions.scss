@@ -40,16 +40,22 @@ button{
     @media (max-width:414px) {
         margin-left: 40px;
     }
+    @media (max-width: 1024px){
+        margin-left: 20px;
+    }
     margin-top: 14px;
     &__links-info{
         display: flex;
         justify-content: space-between;
-        @media (max-width: 414px) {
+        @media (max-width: 600px) {
             display: none;
         }
     }
     &__logo{
         cursor: pointer;
+        @media (max-width: 600px) {
+            display: none;
+        }
     }
     &__item{
         display: flex;
@@ -60,6 +66,9 @@ button{
         display: flex;
         gap: 40px;
         font-size: 16px;
+        @media (max-width:1024px) {
+            display: none;
+        }
     }
     &__city{
         display: flex;
@@ -89,6 +98,9 @@ button{
         border-radius: 7px;
         padding: 16px 40.5px 16px 40.5px;
         font-size: 16px;
+        @media (max-width:800px) {
+            display: none;
+        }
     }
     &__input{
         font-size: 16px;
@@ -96,13 +108,16 @@ button{
         width: 722px;
         border-radius: 7px;
         border: 3px solid #63BEAF;
-        @media (max-width: 414px) {
+        @media (max-width: 1024px) {
+            max-width: 400px;
+        }
+        @media (max-width: 960px) {
             max-width: 300px;
         }
     }
     &__burger{
         display: none;
-        @media (max-width: 414px) {
+        @media (max-width: 600px) {
             display: block;
             border: 0;
         }
@@ -118,7 +133,7 @@ button{
         gap: 30px;
     }
     &__adaptive{
-        @media (max-width: 414px) {
+        @media (max-width: 600px) {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -127,7 +142,7 @@ button{
     }
 }
 .filters{
-    @media (max-width:414px) {
+    @media (max-width:1024px) {
         margin-left: 13px;
     }
 }
@@ -217,9 +232,13 @@ button{
     &__title{
         margin-top: 20px;
         margin-bottom: 30px;
+        margin-left: 20px;
     }
 }
 .footer{
+    @media (max-width:720px) {
+        display: none;
+    }
     max-width: 1490px;
     margin: 0 auto;
     margin-top: 150px;
@@ -259,7 +278,7 @@ button{
     &.open{
         display: block;
         position: absolute;
-        left: 115%;
+        left: 65%;
         bottom: 80%;
     }
     &__text{
@@ -320,11 +339,25 @@ button {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    @media (max-width: 1300px) {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
 }
 .block h2{
     font-size: 22px;
     margin-bottom: 5px;
+    @media (max-width:720px) {
+        font-size: 18px;
+    }
+    @media (max-width:500px) {
+        font-size: 14px;
+    }
 }
 .block img{
-    border-radius: 3px;
+    border-radius: 13px;
+    @media (max-width:720px) {
+        width: 369px;
+        height: 205px;
+    }
 }
