@@ -18,7 +18,7 @@ document.getElementById('burger').addEventListener('click', function() {
 // URL для запроса
 const baseUrl = 'https://6732eb2a2a1b1a4ae1114d3d.mockapi.io/tasks';
 
-// Функция для выполнения fetch запроса с фильтрацией и пагинацией
+// выполнение fetch запроса с фильтрацией и пагинацией
 function fetchData(searchInput, category, page) {
     const url = new URL(baseUrl);
     if (searchInput) url.searchParams.append('title', searchInput);
@@ -69,12 +69,12 @@ function displayData(data) {
     });
 }
 
-// Функция для перехода на страницу с подробной информацией
+// переход на страницу с подробной информацией
 function nextIndex(cardId) {
     window.location.href = `attraction_post.html?id=${cardId}`;
 }
 
-// Функция для отображения подробной информации на странице attraction_post.html
+// отображение подробной информации на странице attraction_post.html
 function showDetailsOnPostPage() {
     const urlParams = new URLSearchParams(window.location.search);
     const cardId = urlParams.get('id');
@@ -118,7 +118,7 @@ function applyFilters() {
     fetchData(searchInput, category, currentPage);
 }
 
-// Функция для рендеринга пагинации
+// рендеринг пагинации
 function renderPagination(totalItems) {
     const pagination = document.getElementById('pagination');
     if (!pagination) {
@@ -182,21 +182,6 @@ applyFilters();
 // Добавляем обработчик событий для поиска
 document.getElementById('searchInput').addEventListener('input', filterItems);
 
-// Добавляем обработчик событий для фильтрации по категориям
-buttons.forEach(button => {
-    button.addEventListener('click', function () {
-        if (!text) {
-            console.error('Элемент text не найден');
-            return;
-        }
-        text.textContent = this.textContent;
-        strel.classList.toggle('rotate');
-        win.style.display = 'none';
-        localStorage.setItem('text', text.textContent);
-        c = c - 1;
-        filterByCategory(this.getAttribute('data-category'));
-    });
-});
 
 // Исправление ошибки с поиском: при пустом значении поискового запроса сбрасываем фильтрацию
 document.getElementById('searchInput').addEventListener('input', function() {
@@ -206,3 +191,14 @@ document.getElementById('searchInput').addEventListener('input', function() {
         applyFilters();
     }
 });
+
+
+const user = {
+    name: 'Alice',
+    address: {
+        city: 'New York'
+    }
+};
+
+console.log(user?.address?.city); // "New York"
+console.log(user?.address?.street); // undefined

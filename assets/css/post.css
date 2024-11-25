@@ -37,13 +37,13 @@
 .information__image {
   display: block;
   margin: auto;
-  border-radius: 3px;
+  border-radius: 13px;
 }
 .information__map {
   width: 615px;
   height: 410px;
   position: relative;
-  border-radius: 3px;
+  border-radius: 13px;
 }
 .information__frame {
   display: grid;
@@ -52,5 +52,5 @@
 }
 .information__main-text {
   max-width: 900px;
-  margin-left: 50px;
+  margin-left: 20px;
 }

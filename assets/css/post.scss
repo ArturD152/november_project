@@ -35,13 +35,13 @@
     &__image{
         display: block;
         margin: auto;
-        border-radius: 3px;
+        border-radius: 13px;
     }
     &__map{
         width: 615px;
         height: 410px;
         position: relative;
-        border-radius: 3px;
+        border-radius: 13px;
     }
     &__frame{
         display: grid;
@@ -50,7 +50,7 @@
     }
     &__main-text{
         max-width: 900px;
-        margin-left: 50px;
+        margin-left: 20px;
     }
     
 }
