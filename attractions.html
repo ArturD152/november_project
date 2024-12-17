@@ -33,141 +33,111 @@
                 <button class="header__btn">
                     Cвязаться с нами
                 </button>
+                <div class="header__adaptive">
                 <form action="" class="header__form">
-                    <input class="header__input" type="text" placeholder="Поиск достопримечательности">
-                    <button class="header__btn">Найти</button>
+                    <input oninput="filterItems()" class="header__input" id="searchInput" type="text" placeholder="Поиск достопримечательности">
                 </form>
+                <button class="header__burger" id="burger">
+                    <img src="./assets/img/burger.png" alt="">
+                </button>
+                </div>
             </div>
         </header>
+
         <section class="section">
             <div class="section__main">
-                <h1 class="section__title">
-                    Достопримечательности
-                </h1>
-            <div class="section__grid">
-            <a href="./redsquare.html">
-                <div class="section__block1">
-                    <h1 class="section__block1-title">
-                        Красная площадь
-                    </h1>
-                    <div class="section__block1-flex">
-                        <div class="section__block1-img">
-                            <img class="section__block1-pict" src="./assets/img/img1.jpg" alt="img">
-                        </div>                        
+                <div class="filters">
+                    <div class="dropdown">
+                        <button class="dropbtn filter-btn">Фильтр</button>
+                        <div class="dropdown-content">
+                            <button onclick="filterByCategory('all')" class="filter-btn">Все</button>
+                            <button onclick="filterByCategory('parks')" class="filter-btn" >Парки</button>
+                            <button onclick="filterByCategory('museums')" class="filter-btn" >Музеи</button>
+                            <button onclick="filterByCategory('attractions')" class="filter-btn" >Достопримечательности</button>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="./mavz.html">
-                <div class="section__block2">
-                    <h1 class="section__block2-title">
-                        Мавзолей
-                    </h1>
-                    <div class="section__block2-flex">
-                        <div class="section__block2-img">
-                            <img class="section__block2-pict" src="./assets/img/img2.png" alt="img">
+                    <div class="dropdown-sort">
+                        <button class="dropbtn-sort sort-btn">Сортировка</button>
+                        <div class="dropdown-sort-content">
+                            <button class="sort-btn" data-sort="popularity-desc">Более популярные</button>
+                            <button class="sort-btn" data-sort="popularity-asc">Менее популярные</button>
+                            <button class="sort-btn" data-sort="date-desc">Самые новые</button>
+                            <button class="sort-btn" data-sort="date-asc">Самые старые</button>
                         </div>
                     </div>
                 </div>
-            </a>
-            <a href="./museum1.html">
-                <div class="section__block2">
-                    <h1 class="section__block2-title">
-                        Государственный исторический музей
+                <section class="section">
+                    <h1 class="section__title">
+                        Достопримечательности
                     </h1>
-                    <div class="section__block2-flex">
-                        <div class="section__block2-img">
-                            <img class="section__block2-pict" src="./assets/img/img3.jpg" alt="img">
+                    <div id="data-container" class="grid-column"></div>
+                    <div id="loader">
+                        <p>Загрузка</p>
+                    </div>
+                        <!-- <div class="mavzoley content__block" id="1" data-category="attractions" onclick="postId(this.id)">
+                            <h1 class="attractions__title">
+                                Мавзолей
+                            </h1>
+                            <div class="attractions__div-img2">
+                                <img class="attractions__img2" src="./assets/img/img2.png" alt="img">
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </a>
-            <a href="./hram.html">
-                <div class="section__block2">
-                    <h1 class="section__block2-title">
-                        Храм Василия Блаженного
-                    </h1>
-                    <div class="section__block2-flex">
-                        <div class="section__block2-img">
-                            <img class="section__block2-pict" src="./assets/img/img4.jpg" alt="img">
+                        <div class="historic content__block" data-category="museums">
+                            <h1 class="attractions__title">
+                                Государственный исторический музей
+                            </h1>
+                            <div class="attractions__div-img3">
+                                <img class="attractions__img3" src="./assets/img/img3.jpg" alt="img">
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </a>
-            <a href="./kreml.html">
-                <div class="section__block5">
-                    <h1 class="section__block2-title">
-                        Кремль
-                    </h1>
-                    <div class="section__block2-flex">
-                        <div class="section__block2-img">
-                            <img class="section__block2-pict" src="./assets/img/img5.jpg" alt="img">
-                            
-                    </div>
-                </div>
-            </a>
-            <a href="./redsquare.html">
-                <div class="section__block2">
-                    <h1 class="section__block2-title">
-                        Оружейная палата
-                    </h1>
-                    <div class="section__block2-flex">
-                        <div class="section__block2-img">
-                            <img class="section__block2-pict" src="./assets/img/img6.png" alt="img">
-                            
-                    </div>
-                </div>
-            </a>
-            <a href="./redsquare.html">
-                <div class="section__block2">
-                    <h1 class="section__block2-title">
-                        ГУМ
-                    </h1>
-                    <div class="section__block2-flex">
-                        <div class="section__block2-img">
-                            <img class="section__block2-pict" src="./assets/img/img8.jpg" alt="img">
-                            
-                    </div>
-                </div>
-            </a>
-            <a href="./redsquare.html">
-                <div class="section__block2">
-                    <h1 class="section__block2-title">
-                        Гостиный Двор
-                    </h1>
-                    <div class="section__block2-flex">
-                        <div class="section__block2-img">
-                            <img class="section__block2-pict" src="./assets/img/img9.jpg" alt="img">
-                            
+                        <div class="historic content__block" data-category="parks">
+                            <h1 class="attractions__title">
+                                Летний сад
+                            </h1>
+                            <div class="sattractions__div-img4">
+                                <img class="sattractions__img4" src="./assets/img/park1.png" alt="img">
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </a>
-            <a href="./redsquare.html">
-                <div class="section__block2">
-                    <h1 class="section__block2-title">
-                        Елисеевский магазин
-                    </h1>
-                    <div class="section__block2-flex">
-                        <div class="section__block2-img">
-                            <img class="section__block2-pict" src="./assets/img/img10.jpg" alt="img">
-                            
+                        <div class="tavrical content__block" data-category="parks">
+                            <h1 class="attractions__title">
+                                Таврический сад
+                            </h1>
+                            <div class="sattractions__div-img5">
+                                <img class="sattractions__img5" src="./assets/img/park2.png" alt="img">
+                            </div>
                         </div>
-                    </div>
+                        <div class="mihal content__block" data-category="parks">
+                            <h1 class="attractions__title">
+                                Михайловский сад
+                            </h1>
+                            <div class="sattractions__div-img6">
+                                <img class="sattractions__img6" src="./assets/img/park3.png" alt="img">
+                            </div>
+                        </div>
+                        <div class="mihal content__block" data-category="parks">
+                            <h1 class="attractions__title">
+                                Парк Сокольники
+                            </h1>
+                            <div class="attractions__div-img6">
+                                <img class="attractions__img6" src="./assets/img/sokolniki.jpg" alt="img">
+                            </div>
+                        </div>
+                        <div class="mihal content__block" data-category="parks">
+                            <h1 class="attractions__title">
+                                Воробьевы горы
+                            </h1>
+                            <div class="attractions__div-img6"> 
+                                <img class="attractions__img6" src="./assets/img/vorobievi.jpg" alt="img">
+                            </div>
+                        </div>
+                    </div>-->
+                    <div id="pagination" class="pagination__button"></div>
+                </section>
+                    
                 </div>
-            </a>
-        </div>
-            <!--<a href="./redsquare.html">
-                <div class="section__block2">
-                    <h1 class="section__block2-title">
-                        Донской монастырь
-                    </h1>
-                    <div class="section__block2-flex">
-                        <div class="section__block2-img">
-                            <img class="section__block2-pict" src="./assets/img/img11.jpg" alt="img">
-                        </div>                       
-                    </div>
-                </div>
-            </a>-->
+            </div>
+        </section>
+            
             </div>
         </section>
         <footer class="footer">
@@ -266,5 +236,16 @@
             </div>
         </footer>
     </div>   
+    <section class="module__bgc">
+        <div class="module" id='module'>
+            <ul>
+                <a href="./index.html"><p class="module__text">Главная</p></a>
+                <a href="./about.html"><p class="module__text">О компании</p></a>
+                <a href="./contacts.html"><p class="module__text">Контакты</p></a>
+                <a href="./attractions.html"><p class="module__text">Дост-ности</p></a>
+            </ul>
+        </div>
+    </section>
+    <script src="./assets/js/burger.js"></script>
 </body>
 </html>

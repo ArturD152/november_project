@@ -41,12 +41,31 @@ input {
 .header {
   margin-top: 14px;
 }
+@media (max-width: 414px) {
+  .header {
+    margin-left: 20px;
+  }
+}
 .header__links-info {
   display: flex;
   justify-content: space-between;
 }
+@media (max-width: 414px) {
+  .header__links-info {
+    display: none;
+  }
+}
 .header__logo {
   cursor: pointer;
+}
+.header__burger {
+  display: none;
+}
+@media (max-width: 414px) {
+  .header__burger {
+    display: block;
+    border: 0;
+  }
 }
 .header__item {
   display: flex;
@@ -88,6 +107,21 @@ input {
   font-size: 16px;
   cursor: pointer;
 }
+@media (max-width: 414px) {
+  .header__btn {
+    font-size: 12px;
+    padding: 16px 10px 16px 10px;
+    min-width: 200px;
+  }
+}
+@media (max-width: 414px) {
+  .header__adaptive {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 320px;
+  }
+}
 .header__input {
   font-size: 16px;
   height: 46px;
@@ -112,13 +146,39 @@ input {
   align-items: top;
   margin-bottom: 50px;
 }
+@media (max-width: 414px) {
+  .section__flex {
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+    gap: 100px;
+  }
+}
+@media (max-width: 414px) {
+  .section__block3 {
+    display: none;
+  }
+}
 .section__title {
   margin-top: 28px;
+}
+@media (max-width: 414px) {
+  .section__title {
+    display: none;
+  }
 }
 .section__text-s {
   margin-top: 30px;
   font-size: 24px;
   font-weight: 600;
+  margin-bottom: 20px;
+}
+@media (max-width: 414px) {
+  .section__text-s {
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
 }
 .section__block {
   width: 360px;
@@ -126,6 +186,12 @@ input {
 .section__text {
   margin-top: 50px;
   margin-bottom: 18px;
+}
+@media (max-width: 414px) {
+  .section__text {
+    margin-left: 20px;
+    font-size: 14px;
+  }
 }
 .section__num {
   font-size: 42px;
@@ -135,6 +201,11 @@ input {
   font-size: 18px;
   font-weight: 700;
 }
+@media (max-width: 414px) {
+  .section__title {
+    margin-left: 5px;
+  }
+}
 .section__main-text {
   font-size: 16px;
   font-weight: 400;
@@ -143,6 +214,14 @@ input {
 .footer {
   margin-top: 100px;
   margin-bottom: 40px;
+}
+@media (max-width: 414px) {
+  .footer {
+    margin-left: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 40px;
+  }
 }
 .footer__flex {
   display: flex;

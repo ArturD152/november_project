@@ -7,15 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="./assets/js/main.js"></script>
     <div class="container">
         <header class="header">
             <div class="header__links-info">
-                <nav class="header__nav">
-                    <ul class="header__item">
-                        <button class="header__burger" id="burger">
-                            <img class="header__menu" src="./assets/img/header_menu.png" alt="menu">
-                        </button>
+                <nav class="header__nav" id="menu">
+                    <ul class="header__item" id="navLinks">
                         <a href="./index.html" class="header__link"><li>Главная</li></a>
                         <a href="./about.html" class="header__link"><li class="header__link">О компании</li></a>
                         <a href="./contacts.html" class="header__link"><li class="header__link">Контакты</li></a>
@@ -34,12 +30,18 @@
                 <div class="header__logo">
                     <img src="./assets/img/logo.png" alt="logo">
                 </div>
-                <a href="./form/index.html">
-                    <button class="header__btn">
-                        Cвязаться с нами
+                <div class="header__adaptive">
+                    <a href="./form/index.html">
+                        <button class="header__btn">
+                            Cвязаться с нами
+                        </button>
+                    </a>
+                    <button class="header__burger" id="burger">
+                        <img src="./assets/img/burger.png" alt="" id="burger-icon">
                     </button>
-                </a>
+                </div>
             </div>
+        
         </header>
         <section class="section">
             <div class="section__block1">
@@ -72,8 +74,8 @@
                         <img src="./assets/img/museum3.jpg" alt="Image 4">
                         <img src="./assets/img/museum5.webp" alt="Image 5">
                     </div>
-                    <button class="section__slider-prevBtn prevImage">Предыдущая</button>
-                    <button class="section__slider-nextBtn nextImage">Следующая</button>
+                    <button class="section__slider-prevBtn prevImage" style="font-size: 30px;">&LeftArrow;</button>
+                    <button class="section__slider-nextBtn nextImage" style="font-size: 30px;">&RightArrow;</button>
                 </div>
         </section>    
             
@@ -311,5 +313,16 @@
             </div>
         </footer>
     </div>
+    <script src="./assets/js/main.js"></script>
+    <section>
+        <div class="module" id='module'>
+            <ul>
+                <a href="./index.html"><li>Главная</li></a>
+                <a href="./about.html"><li>О компании</li></a>
+                <a href="./contacts.html"><li>Контакты</li></a>
+                <a href="./attractions.html"><li>Достопримечательности</li></a>
+            </ul>
+        </div>
+    </section>
 </body>
 </html>

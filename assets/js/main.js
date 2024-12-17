@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
     nextBtn.addEventListener('click', nextImage);
     prevBtn.addEventListener('click', prevImage);
 
-    // Show the first image initially
     showImage(currentIndex);
 });
 
