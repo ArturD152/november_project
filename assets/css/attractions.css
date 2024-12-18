@@ -457,8 +457,8 @@ button {
 
 .block img {
   border-radius: 13px;
-  max-width: 615px;
-  max-height: 410px;
+  width: 615px;
+  height: 410px;
 }
 @media (max-width: 720px) {
   .block img {
