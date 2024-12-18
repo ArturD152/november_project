@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .open {
+            display: block;
+        }
+        .block {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="burger">☰</div>
+    <div id="module" class="module">
+        <input type="text" id="searchInput" placeholder="Поиск...">
+        <select id="filterSelect">
+            <option value="all">Все</option>
+            <option value="парки">Парки</option>
+            <option value="музеи">Музеи</option>
+            <option value="достопримечательности">Достопримечательности</option>
+        </select>
+    </div>
+    <div id="data-container"></div>
+    <div id="pagination">
+        <button id="prev-page">Предыдущая</button>
+        <span id="page-info"></span>
+        <button id="next-page">Следующая</button>
+      </div>
+      
+      <script>
+        let dictionary = []
+        let currentPage = parseInt(localStorage.getItem('currentPage')) || 1;
+        const itemsPerPage = 4;
+        let allItems = [];
+        let filteredItems = [];
+
+        document.getElementById('burger').addEventListener('click', function() {
+            document.getElementById("module").classList.toggle("open");
+        });
+
+        const url = 'https://6732eb2a2a1b1a4ae1114d3d.mockapi.io/tasks';
+
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Ошибка сети');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Полученные данные:', data);
+                allItems = data;
+                filteredItems = data;
+                filter();
+                function filter(){
+                  const category = localStorage.getItem('category')
+                  for(i = 0; i < 7; i++){
+                    console.log(dictionary)
+                    if((category === 'all' || response.data[i][category] === category)){
+                      dictionary.push(responce.data[i])}
+                    }
+                }
+                applyFilters();
+            })
+            .catch(error => {
+                console.error('Произошла ошибка:', error);
+            });
+
+        function displayData(data) {
+            const container = document.getElementById('data-container');
+            container.innerHTML = '';
+            data.forEach(item => {
+                const block = document.createElement('div');
+                block.className = 'block';
+                block.category = item.category; // Добавляем категорию в элемент
+                block.innerHTML = `
+                    <h2>${item.title}</h2>
+                    <img src="${item.image}" alt="${item.title}">
+                `;
+                block.addEventListener('click', () => nextIndex(item.id));
+                container.appendChild(block);
+            });
+        }
+
+        function nextIndex(cardId) {
+            window.location.href = `attraction_post.html?id=${cardId}`;
+        }
+
+        function showDetailsOnPostPage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const cardId = urlParams.get('id');
+
+            if (cardId) {
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        const item = data.find(item => item.id === cardId);
+                        if (item) {
+                            const detailsContainer = document.getElementById('details-container');
+                            detailsContainer.innerHTML = `
+                                <h2>${item.title}</h2>
+                                <img src="${item.image}" alt="${item.title}">
+                                <p>${item.text}</p>
+                            `;
+                        } else {
+                            console.error('Достопримечательность не найдена');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Произошла ошибка:', error);
+                    });
+            } else {
+                console.error('Идентификатор достопримечательности не найден');
+            }
+        }
+
+        if (window.location.pathname.includes('attraction_post.html')) {
+            showDetailsOnPostPage();
+        }
+
+        function applyFilters() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const category = document.getElementById('filterSelect').value;
+
+            console.log('Применяем фильтры:', { searchInput, category });
+
+            if (searchInput === '' && category === 'all') {
+                filteredItems = allItems;
+            } else {
+                filteredItems = allItems.filter(item => {
+                    const categoryMatch = category === 'all' || item.category === category;
+                    const searchMatch = item.title.toLowerCase().includes(searchInput);
+                    console.log('Фильтруем элемент:', item, { categoryMatch, searchMatch });
+                    return categoryMatch && searchMatch;
+                });
+            }
+
+            currentPage = 1;
+            localStorage.setItem('currentPage', currentPage);
+            renderItems();
+        }
+
+        function renderItems() {
+            const container = document.getElementById('data-container');
+            container.innerHTML = '';
+
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const paginatedItems = dictionary.slice(startIndex, endIndex);
+            console.log('Отображаем элементы:', paginatedItems);
+
+            paginatedItems.forEach(item => {
+                const block = document.createElement('div');
+                block.className = 'block';
+                block.innerHTML = `
+                    <h2>${item.title}</h2>
+                    <img src="${item.image}" alt="${item.title}">
+                `;
+                block.addEventListener('click', () => nextIndex(item.id));
+                container.appendChild(block);
+            });
+            renderPagination();
+        }
+
+        function renderPagination() {
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+
+            const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.onclick = () => {
+                    currentPage = i;
+                    localStorage.setItem('currentPage', currentPage);
+                    renderItems();
+                };
+                pagination.appendChild(button);
+            }
+
+            document.getElementById('prev-page').disabled = currentPage === 1;
+            document.getElementById('next-page').disabled = currentPage === totalPages;
+        }
+
+        document.getElementById('searchInput').addEventListener('input', applyFilters);
+        document.getElementById('filterSelect').addEventListener('change', applyFilters);
+
+        document.getElementById('prev-page').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                localStorage.setItem('currentPage', currentPage);
+                renderItems();
+            }
+        });
+
+        document.getElementById('next-page').addEventListener('click', () => {
+            const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                localStorage.setItem('currentPage', currentPage);
+                renderItems();
+            }
+        });
+    </script>
+</body>
+</html>
