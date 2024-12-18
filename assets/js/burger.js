@@ -20,30 +20,29 @@ const baseUrl = 'https://6732eb2a2a1b1a4ae1114d3d.mockapi.io/tasks';
 function showLoader() {
     const loader = document.getElementById('loader');
     if (loader) {
-        loader.style.display = 'block';
+        loader.style.display = 'block'; // Показываем Loader
     }
 }
 
 function hideLoader() {
     const loader = document.getElementById('loader');
     if (loader) {
-        loader.style.display = 'none'; 
+        loader.style.display = 'none'; // Скрываем Loader
     }
 }
 
-
 function sortData(data, sortBy, order) {
-    if (sortBy === 'date') {
+    if(sortBy === 'date') {
         return data.sort((a, b) => {
             const dateA = new Date(a.date);
             const dateB = new Date(b.date);
             return order === 'asc' ? dateA - dateB : dateB - dateA;
         });
-    } else if (sortBy === 'popularity') {
+    }else if (sortBy === 'popularity') {
         return data.sort((a, b) => {
             return order === 'asc' ? a.popularity - b.popularity : b.popularity - a.popularity;
         });
-    } else {
+    }else {
         return data;
     }
 }
@@ -85,24 +84,28 @@ function fetchData(page, searchInput = '', category = 'all', sortBy = 'title', o
         });
 }
 
-
 function displayData(data) {
     const container = document.getElementById('data-container');
     if (!container) {
         console.error('Контейнер data-container не найден');
         return;
     }
-    container.innerHTML = ''; 
+    container.innerHTML = '';
     data.forEach(item => {
         const block = document.createElement('div');
         block.className = 'block';
-        block.setAttribute('data-category', item.category); 
+        block.setAttribute('data-category', item.category);
+
+        const firstImage = Array.isArray(item.images) && item.images.length > 0 ? item.images[0] : '';
+
         block.innerHTML = `
             <h2>${item.title}</h2>
-            <img src="${item.image}" alt="${item.title}">
+            <img src="${firstImage}" alt="${item.title}">
         `;
         block.addEventListener('click', () => nextIndex(item.id));
         container.appendChild(block);
+
+        console.log('Отображаем изображение:', firstImage);
     });
 }
 
@@ -155,7 +158,7 @@ function applyFilters() {
     fetchData(currentPage, searchInput, category, sortBy, order);
 }
 
-function renderPagination(totalItems) {
+function renderPagination() {
     const pagination = document.getElementById('pagination');
     if (!pagination) {
         console.error('Контейнер pagination не найден');
@@ -230,9 +233,12 @@ document.querySelectorAll('.sort-btn').forEach(button => {
     });
 });
 
+
 applyFilters();
 
+
 document.getElementById('searchInput').addEventListener('input', filterItems);
+
 
 document.getElementById('searchInput').addEventListener('input', function () {
     const searchInput = this.value.toLowerCase();
@@ -241,3 +247,4 @@ document.getElementById('searchInput').addEventListener('input', function () {
         applyFilters();
     }
 });
+
